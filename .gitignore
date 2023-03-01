@@ -22,3 +22,4 @@
 *.kate-swp
 *.cache
 .idea/workspace.xml
+lib/junit-platform-console-standalone-1.9.2.jar

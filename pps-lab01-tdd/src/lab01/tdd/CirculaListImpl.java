@@ -46,6 +46,8 @@ public class CirculaListImpl implements CircularList{
         if(!isEmpty()){
             int current = list.get(index);
             this.index = this.index-1;
+            if(index<0)
+                this.index = size()-1;
             return Optional.of(current);
         }
         return Optional.empty();

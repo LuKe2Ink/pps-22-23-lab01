@@ -60,5 +60,21 @@ public class CircularListTest {
         assertEquals(Optional.of(1), this.circularList.next());
     }
 
+    @Test
+    void testReset(){
+        popolateList();
+        assertEquals(Optional.of(1), this.circularList.next());
+        this.circularList.reset();
+        assertEquals(Optional.of(1), this.circularList.next());
+    }
+
+    @Test
+    void testMultiplePrevious(){
+        popolateList();
+        assertEquals(Optional.of(1), this.circularList.previous());
+        assertEquals(Optional.of(3), this.circularList.previous());
+        assertEquals(Optional.of(2), this.circularList.previous());
+        assertEquals(Optional.of(1), this.circularList.previous());
+    }
 
 }
