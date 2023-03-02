@@ -1,51 +1,51 @@
-package step2.tdd;
+package step3.tdd;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 
-import javax.lang.model.element.Element;
-
-import lab01.tdd.CirculaListImpl;
+import step2.tdd.CircularIterator;
+import step2.tdd.CircularListIterator;
 import step2.tdd.CircularIterator.Direction;
 
-public class CirculaListIteratorImpl implements CircularListIterator{
-
+public class CircularListIteratorFilteredImpl implements CircularListIterator{
+    
     private List<Integer> list;
     private int index;
 
-    public CirculaListIteratorImpl(){
+    public CircularListIteratorFilteredImpl(){
         this.list = new ArrayList();
         this.index = 0;
     }
 
-    @Override
     public void add(int element) {
         this.list.add(element);
     }
 
-    @Override
     public int size() {
         return this.list.size();
     }
 
-    @Override
     public boolean isEmpty() {
         return this.list.isEmpty();
     }
-
+    
     @Override
     public Iterator<Integer> forwardIterator() {
+        // TODO Auto-generated method stub
         return new CircularIterator<>(this.list, Direction.FORWARD);
     }
 
     @Override
-    public Iterator<java.lang.Integer> backwardIterator() {
+    public Iterator<Integer> backwardIterator() {
+        // TODO Auto-generated method stub
         return new CircularIterator<>(this.list, Direction.BACKWARD);
+    }
+
+    public FilteredIterator<Integer> filteredNext(Predicate predicate) {
+        return new FilteredIterator(this.list, Direction.FORWARD, predicate);
     }
     
 }
-/**
- *
- */
